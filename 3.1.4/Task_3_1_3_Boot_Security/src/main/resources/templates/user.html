@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <title>User page</title>
+</head>
+<body>
+<div class="row p-3 mb-2 bg-dark text-white">
+    <div class="col-md-11">
+        <tr>
+            <td th:text="${userToShow.getEmail()}"></td>
+            <td>with roles:</td>
+            <td th:text="${userToShow.getRoles()}"></td>
+        </tr>
+    </div>
+
+    <div class="col-md-1">
+        <td><a th:href="@{/}" class="d-flex justify-content-end text-secondary">Logout</a></td>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+               aria-controls="v-pills-home" aria-selected="true">User</a>
+        </div>
+    </div>
+
+    <div class="col-9">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <h1>User information page</h1>
+            <div class="card">
+                <div class="card-header">
+                    <h4>About user</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${userToShow.getId()}"></td>
+                            <td th:text="${userToShow.getUsername()}"></td>
+                            <td th:text="${userToShow.getLastname()}"></td>
+                            <td th:text="${userToShow.getAge()}"></td>
+                            <td th:text="${userToShow.getEmail()}"></td>
+                            <td th:text="${userToShow.getRoles()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
